@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+h1{
+    color: blueviolet;
+    font-style: italic;
+}
+
+h2{
+    color: brown;
+}
+
+p{
+    color: darkblue;
+}
+
+/* You can add global styles to this file, and also import other style files */
+.boldClass
+{
+    font-weight: bold;
+}
+.italicClass
+{
+    font-style: italic;
+}
+.colorClass
+{
+    font-size: 50px;
+    color: red;
+}
+

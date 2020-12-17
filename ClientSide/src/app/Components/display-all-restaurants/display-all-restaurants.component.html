@@ -1,0 +1,48 @@
+<head>
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+</head>
+<button (click)="createRestaurant(rest)" class="btn btn-primary" style="margin-left: 10px">Add Restaurant</button>
+ 
+    
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2 style="text-align:center">Restaurant List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Restaurant Name</th>
+            <th>Restaurant Address</th>
+            <th>Restaurant PhoneNo</th>
+            <th>Open Time</th>
+            <th>Close Time</th>
+            <!-- <th>Restaurant Status</th> -->
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rest of restaurants | async">
+            <td>{{rest.rest_name}}</td>
+            <td>{{rest.rest_address}}</td>
+            <td>{{rest.phone}}</td>
+            <td>{{rest.open_time}}</td>
+            <td>{{rest.close_time}}</td>
+            <!-- <td>{{rest.active}}</td> -->
+            <td>
+              <i class="fas fa-pencil-alt"></i>
+                <button (click)="updateRestaurant(rest.rest_id)" class="btn btn-primary" style="margin-left: 15px">Update</button>
+                <br><br>
+                <button (click)="deleteRestaurant(rest.rest_id)" class="btn btn-primary" style="margin-left: 15px">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <hr>
+    <button (click)="restaurantList()" class="btn btn-primary"  style="text-align: center;">Back to Home </button><br>
+  </div>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+ <nav class="navbar navbar-expand-sm bg-info navbar-dark">
+  <!-- Links -->
+   <ul class="navbar-nav">
+   <div *ngIf="flag==null">
+    <li class="nav-item">
+        <a style="color: rgb(245, 250, 247);" routerLink="adminLogin" class="nav-link" routerLinkActive="active">Admin Login</a>
+    </li>
+  </div> 
+  <div *ngIf="flag!=null">
+    <li class="nav-item">
+      <a style="color: rgb(245, 247, 243);" routerLink="adminLogin" class="nav-link" routerLinkActive="active"></a>
+  </li>
+  </div>
+
+  </ul> 
+</nav>
+ <div class="container">
+  <br>
+  <h2 style="text-align: center;">{{title}}</h2>
+  <hr>  
+  <div class="card">
+    <div class="card-body">
+   <router-outlet></router-outlet> 
+    </div>
+  </div>
+ </div>
+
+  

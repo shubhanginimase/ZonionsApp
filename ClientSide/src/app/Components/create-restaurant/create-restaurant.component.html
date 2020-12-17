@@ -1,0 +1,82 @@
+<h3 style="text-align: center; font-size: 50px;"><b><i>Create Restaurant</i></b></h3>
+<div class="container">
+    <!-- <form #Registerform="ngForm" (ngSubmit)="onSubmit()"> -->
+        <form #Registerform="ngForm">
+        <div class="form-group">
+            <label for="rest_id"><b>* Restaurant id: </b></label>
+            <input type="number" class="form-control" placeholder="Enter Restaurant id" name="rest_id"
+                [(ngModel)]="restaurant.rest_id" required required #rest_id="ngModel"
+                [class.is-invalid]="rest_id.invalid && rest_id.touched">
+            <div *ngIf="rest_id.errors && rest_id.invalid && rest_id.touched">
+                <small class="text-danger" *ngIf="rest_id.errors.required">Restaurant ID is Mandatory.</small>
+            </div>
+        </div>
+      
+        <div class="form-group">
+            <label for="rest_name"><b>* Restaurant name: </b></label>
+            <input type="text" class="form-control" placeholder="Enter Restaurant name" name="rest_name"
+                [(ngModel)]="restaurant.rest_name" required pattern="[A-Za-z ]{1,30}" required #rest_name="ngModel"
+                [class.is-invalid]="rest_name.invalid && rest_name.touched">
+            <div *ngIf="rest_name.errors && rest_name.invalid && rest_name.touched">
+                <small class="text-danger" *ngIf="rest_name.errors.required">Restaurant name is Mandatory.</small>
+                <small class="text-danger" *ngIf="rest_name.errors.pattern">Enter valid Restaurantname</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="rest_address"><b>* Restaurant Address: </b></label>
+            <textarea class="form-control" name="rest_address" required #rest_address="ngModel"
+                [(ngModel)]="restaurant.rest_address" placeholder="Enter Restaurant address"
+                [class.is-invalid]="rest_address.invalid && rest_address.touched">
+                <div *ngIf="rest_address.errors && rest_address.invalid && rest_address.touched">
+                    <small class="text-danger" *ngIf="rest_address.errors.required">Restaurant Address is Mandatory.</small>
+                </div>       
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="phone"><b>* Restaurant Phone Number: </b></label>
+            <input type="text" class="form-control" placeholder="Enter Restaurant Number" name="phone"
+                [(ngModel)]="restaurant.phone" required pattern="[789][0-9]{9}" required #phone="ngModel"
+                [class.is-invalid]="phone.invalid && phone.touched">
+            <div *ngIf="phone.errors && phone.invalid && phone.touched">
+                <small class="text-danger" *ngIf="phone.errors.required">Restaurant Number is Mandatory.</small>
+                <small class="text-danger" *ngIf="phone.errors.pattern">Enter valid  Number</small>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label for="open_time"><b>* Opening Time of Restaurant:</b></label>
+            <ngb-timepicker [(ngModel)]="restaurant.open_time"></ngb-timepicker>
+            <hr>
+            <pre>{{restaurant.open_time | json}}</pre>
+        </div>
+        <div class="form-group">
+            <label for="close_time"><b>* Closing  Time of Restaurant:</b></label>
+            <ngb-timepicker [(ngModel)]="restaurant.close_time"></ngb-timepicker>
+            <hr>
+            <pre>{{restaurant.open_time | json}}</pre>
+        </div> -->
+        <div class="form-group">
+            <label for="active"><b>* Restaurant Status  :-</b></label>
+        <label><input type=checkbox name=active  [(ngModel)]="restaurant.active"> Active</label>
+        </div>
+        <!-- <button [disabled]="Registerform.form.invalid" type="submit" class="btn btn-info">Register</button> -->
+    </form>
+
+</div>
+<div class="form-group">
+    <label for="open_time"><b>* Opening Time of Restaurant:</b></label>
+    <ngb-timepicker [(ngModel)]="open"></ngb-timepicker>
+    <hr>
+    <!-- <pre>{{restaurant.open_time | json}}</pre> -->
+</div>
+<div class="form-group">
+    <label for="close_time"><b>* Closing  Time of Restaurant:</b></label>
+    <ngb-timepicker [(ngModel)]="close"></ngb-timepicker>
+    <hr>
+    <!-- <pre>{{restaurant.close_time | json}}</pre> -->
+</div>
+<button [disabled]="Registerform.form.invalid" (click)="onSubmit()" type="submit" class="btn btn-info">Register</button>
+
+<!-- <div>
+    Form Value: <br>
+    {{Registerform.value | json}}
+</div> -->

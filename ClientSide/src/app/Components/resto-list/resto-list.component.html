@@ -1,0 +1,36 @@
+  
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Restaurant List</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Restaurant ID</th>
+            <th>Restaurant Name</th>
+            <th>Restaurant Address</th>
+            <th>Restaurant Number</th>
+            <th>Open Time</th>
+            <th>Close Time</th>
+            <th>Restaurant Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rest of restaurants | async">
+            <td>{{rest.rest_id}}</td>
+            <td>{{rest.rest_name}}</td>
+            <td>{{rest.rest_address}}</td>
+            <td>{{rest.phone}}</td>
+            <td>{{rest.open_time}}</td>
+            <td>{{rest.close_time}}</td>
+            <td>{{rest.active}}</td>
+            <td>
+                <button (click)="updateRestuarant(rest.rest_id)" class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button (click)="deleteRestaurant(rest.rest_id)" class="btn btn-info" style="margin-left: 10px">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
